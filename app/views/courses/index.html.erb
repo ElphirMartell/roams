@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Fulano Mengánez</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-center">
+      <h2>Your profile</h2>
+    </div>
+    <div class="col-sm-6 text-center">
+      <h2>Your courses</h2>
+      <ul><% @courses.each do |course| %>
+      <li><%= link_to "#{course.coursename}", course %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+

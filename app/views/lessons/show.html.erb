@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center"><%= @lesson.title %></h1>
+
+<div class="col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+    <%= render 'sidebar' %>
+</div>
+
+<div class="col-sm-9">
+	<%=raw @lesson.body %>
+</div>
+
+
