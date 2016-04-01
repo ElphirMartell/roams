@@ -5,6 +5,7 @@ class CoursesController < InheritedResources::Base
   # GET /courses.json
   def index
     @courses = Course.all
+    @usercourse = Enrollment.where user_id: current_user.id
   end
 
   # GET /courses/1
