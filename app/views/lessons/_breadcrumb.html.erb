@@ -1,0 +1,5 @@
+<ul class="breadcrumb">
+	<li><a href="#"><%= link_to 'Home', courses_path %></a></li>
+	<li><a href="#"><%= link_to @course.coursename, course_path(@course) %></a></li>
+	<li class="active"><%= @lesson.title %></li>
+</ul>

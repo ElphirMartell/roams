@@ -14,7 +14,7 @@ class CoursesController < InheritedResources::Base
   		@lessons = Lesson.all
   		@lesson = Lesson.new
   	end
-
+    @course = Course.find(params[:id])
   end
 
 
@@ -74,7 +74,7 @@ class CoursesController < InheritedResources::Base
     end
 
     def course_params
-      params.require(:course).permit(:course_id, :coursename, :teacher, :start_date, :end_date)
+      params.require(:course).permit(:course_id, :coursename, :teacher, :start_date, :end_date,:image)
     end
 end
 

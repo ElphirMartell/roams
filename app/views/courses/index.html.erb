@@ -3,11 +3,31 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="text-center">Fulano Mengánez</h1>
+    <h1 class="text-center"><%= current_user.first_name %> <%= current_user.last_name %></h1>
   </div>
   <div class="row">
     <div class="col-sm-6 text-center">
       <h2>Your profile</h2>
+    <table class="table table-striped table-hover ">
+        <tbody>
+          <tr>
+            <td><strong>Name</strong></td>
+            <td><%= current_user.first_name %></td>
+          </tr>
+          <tr class="info">
+            <td><strong>Last name</strong></td>
+            <td><%= current_user.last_name %></td>
+          </tr>
+          <tr>
+            <td><strong>Username</strong></td>
+            <td><%= current_user.username %></td>
+          </tr>
+          <tr class="info">
+            <td><strong>Email</strong></td>
+            <td><%= current_user.email %></td>
+          </tr>
+        </tbody>
+    </table> 
     </div>
     <div class="col-sm-6 text-center">
       <h2>Your courses</h2>
