@@ -26,7 +26,7 @@ class SurveysController < InheritedResources::Base
   end
 
   def update
-    if @survey.update_attributes(params_whitelist)
+    if @survey.update_attributes(survey_params)
       default_redirect
     else
       build_flash(@survey)
@@ -52,7 +52,7 @@ class SurveysController < InheritedResources::Base
   end
 
   def survey_params
-    params.require(:survey_survey).permit(Survey::Survey::AccessibleAttributes << :survey_type, :course_id)
+    params.require(:survey_survey).permit(Survey::Survey::AccessibleAttributes << :survey_type, :id)
   end
 
 end

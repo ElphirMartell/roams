@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405030509) do
+ActiveRecord::Schema.define(version: 20160406050729) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -76,7 +76,10 @@ ActiveRecord::Schema.define(version: 20160405030509) do
     t.integer "survey_id"
     t.boolean "winner"
     t.integer "score"
+    t.integer "course_id"
   end
+
+  add_index "survey_attempts", ["course_id"], name: "index_survey_attempts_on_course_id"
 
   create_table "survey_options", force: :cascade do |t|
     t.integer  "question_id"
@@ -85,14 +88,20 @@ ActiveRecord::Schema.define(version: 20160405030509) do
     t.boolean  "correct"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
+
+  add_index "survey_options", ["course_id"], name: "index_survey_options_on_course_id"
 
   create_table "survey_questions", force: :cascade do |t|
     t.integer  "survey_id"
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
+
+  add_index "survey_questions", ["course_id"], name: "index_survey_questions_on_course_id"
 
   create_table "survey_surveys", force: :cascade do |t|
     t.string   "name"

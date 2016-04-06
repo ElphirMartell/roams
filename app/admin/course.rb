@@ -20,7 +20,10 @@ ActiveAdmin.register Course do
 		actions
 	end
 	
-
+	filter :coursename
+	filter :teacher
+	filter :start_date
+	filter :end_date
 
 	form do |f|
     	f.inputs "New course" do

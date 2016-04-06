@@ -47,6 +47,7 @@ gem 'codemirror-rails'
 
 gem 'survey'
 
+gem 'kaminari', '~> 0.16.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
