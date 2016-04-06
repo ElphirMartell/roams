@@ -1,5 +1,5 @@
 class SurveysController < InheritedResources::Base
-
+  helper_method :survey
   before_filter :load_survey, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -45,11 +45,11 @@ class SurveysController < InheritedResources::Base
     redirect_to course_surveys_path, notice: I18n.t("surveys_controller.#{action_name}")
   end
 
-  def load_survey
+  private
+
+  def set_survey
     @survey = Survey::Survey.find(params[:id])
   end
-
-  private
 
   def survey_params
     params.require(:survey_survey).permit(Survey::Survey::AccessibleAttributes << :survey_type, :course_id)

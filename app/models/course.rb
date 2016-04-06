@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
 	has_many :lessons
+	has_many :surveys
 	has_many :enrollments
 	has_many :users, through: :enrollments
 	has_attached_file :image, styles: { medium: "500x500>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
