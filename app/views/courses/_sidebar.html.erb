@@ -1,10 +1,10 @@
 <ul class="nav nav-pills nav-stacked">
-    <% if @course.lessons %>
+<% if @course.lessons %>
     <% @course.lessons.each do |lesson| %>
-    <li class="nav-item"><%= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %></li>
+    	<li class="nav-item"><%= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %></li>
     <% end %>
-    <% end %>           
-    <% if current_user.admin? == true %>
-    <li><%= link_to 'Add Lesson', new_course_lesson_path(@course, @lesson) %></li>
-	<%end%>
+    <% if current_user.admin? || current_user.teacher? == true %>
+    	<li><%= link_to 'Add lesson', new_course_lesson_path(@course, @lesson) %></li>
+    <% end %>
+<% end %>           
 </ul>

@@ -45,6 +45,8 @@ gem 'summernote-rails'
 
 gem 'codemirror-rails'
 
+gem 'survey'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
