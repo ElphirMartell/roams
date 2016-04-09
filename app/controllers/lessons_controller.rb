@@ -12,7 +12,9 @@ class LessonsController < InheritedResources::Base
   def show
     @course = Course.find(params[:course_id])
   	@lessons = @course.lessons
+    @ordered_lessons = @lessons.order(:position)
   	@lesson = Lesson.find(params[:id])
+    @paginatable_lesson = @lesson.paged.slice!(params[:slice])
   end
 
   # GET /lessons/new
@@ -20,6 +22,8 @@ class LessonsController < InheritedResources::Base
   	@course = Course.find(params[:course_id])
     @lesson = Lesson.new
     @lesson.course = @course
+    @ordered_lessons = Lesson.all.order(:position)
+    @range = Lesson.all.size + 1
   end
 
   # GET /lessons/1/edit
@@ -27,6 +31,8 @@ class LessonsController < InheritedResources::Base
     @course = Course.find(params[:course_id])
     @lesson = Lesson.find(params[:id])
     @lesson.course = @course
+    @ordered_lessons = Lesson.all.order(:position)
+    @range = Lesson.all.size
   end
 
   # POST /lessons
@@ -80,7 +86,7 @@ class LessonsController < InheritedResources::Base
     end
 
     def lesson_params
-      params.require(:lesson).permit(:lesson_id, :title, :body, :course_id)
+      params.require(:lesson).permit(:lesson_id, :title, :body, :position, :course_id)
     end
 end
 

@@ -1,15 +1,21 @@
 class Users::SessionsController < ActiveAdmin::Devise::SessionsController
-# before_filter :configure_sign_in_params, only: [:create]
 
   # POST /resource/sign_in
-   def create
-     if current_user.admin? == true
+
+  def create
+    if current_user.try(:admin?)
       redirect_to admin_dashboard_path
-     else 
+    elsif non_existent_user
+    else
       redirect_to courses_path
-     end
+    end
   end
 
+  def non_existent_user
+    if current_user == nil
+      redirect_to new_user_session_path
+    end
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super
@@ -19,6 +25,6 @@ class Users::SessionsController < ActiveAdmin::Devise::SessionsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
-  #   devise_parameter_sanitizer.for(:sign_in) << :attribute
+  #  devise_parameter_sanitizer.for(:sign_in) << :username
   # end
 end

@@ -1,5 +1,5 @@
 class SurveysController < InheritedResources::Base
-  helper_method :survey
+  helper :surveys
   before_filter :load_survey, only: [:show, :edit, :update, :destroy]
 
   def new

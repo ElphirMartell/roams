@@ -8,7 +8,10 @@
     <div class="form-group">
       <%= f.input :body, class:'summernote' %>
     </div>
-
+    <div class="form-group">
+      <%= f.label :position, 'And finally choose the position of this lesson in the course' %>
+      <%= f.number_field :position, placeholder: @range, min: 1, max: @range %>
+    </div>    
     <div class="form-group">
       <%= f.button :submit, class:'btn btn-default' %>
     </div>

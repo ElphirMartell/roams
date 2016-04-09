@@ -47,7 +47,9 @@ gem 'codemirror-rails'
 
 gem 'survey'
 
-gem 'kaminari', '~> 0.16.3'
+gem 'html_slicer'
+
+gem 'html-scanner', :github => 'addagger/html-scanner' # (fork from Jakob Skjerning, 'koppen/html-scanner')
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

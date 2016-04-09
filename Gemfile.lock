@@ -18,6 +18,14 @@ GIT
       sprockets (< 4)
 
 GIT
+  remote: git://github.com/addagger/html-scanner.git
+  revision: bb89d20cdf96e76640ce5e7f6829900517d957de
+  specs:
+    html-scanner (0.5.3)
+      actionpack
+      activesupport
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 95acf3b898bd782f4429d42fd2d8812505390328
   specs:
@@ -50,6 +58,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_tools (0.0.40)
+      rails (~> 4)
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -124,6 +134,10 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    html_slicer (0.1.8)
+      actionpack (>= 3.0.0)
+      active_tools (>= 0.0.2)
+      activesupport (>= 3.0.0)
     i18n (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -274,10 +288,11 @@ DEPENDENCIES
   devise
   faker
   font-awesome-rails
+  html-scanner!
+  html_slicer
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
-  kaminari (~> 0.16.3)
   paperclip!
   pg
   pry-rails

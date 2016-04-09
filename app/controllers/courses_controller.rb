@@ -14,6 +14,7 @@ class CoursesController < InheritedResources::Base
   	if Lesson.all.count >= 1
   		@lessons = Lesson.all
   		@lesson = Lesson.new
+      @ordered_lessons = @lessons.order(:position)
   	end
     @course = Course.find(params[:id])
   end
