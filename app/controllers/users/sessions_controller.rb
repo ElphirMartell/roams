@@ -5,8 +5,9 @@ class Users::SessionsController < ActiveAdmin::Devise::SessionsController
   def create
     if current_user.try(:admin?)
       redirect_to admin_dashboard_path
-    elsif non_existent_user
-    else
+    elsif current_user == nil
+      super
+    else current_user.try(:admin?) == false
       redirect_to courses_path
     end
   end
